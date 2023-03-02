@@ -33,9 +33,9 @@ class App:
     def play_sound(self):
         if not self.current_word:
             return
-        if not path.exists(f'assets/{self.get_id(self.current_word)}.wav'):
-            self.tts.text2wav(self.current_word, f'assets/{self.get_id(self.current_word)}.wav')
-        playsound(f'assets/{self.get_id(self.current_word)}.wav')
+        if not path.exists(f'assets/sounds/{self.get_id(self.current_word)}.wav'):
+            self.tts.text2wav(self.current_word, f'assets/sounds/{self.get_id(self.current_word)}.wav')
+        playsound(f'assets/sounds/{self.get_id(self.current_word)}.wav')
     
     def show_word(self):
         self.label.configure(text=f'      {get(self.current_word)}      \n{self.current_word}')
