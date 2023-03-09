@@ -1,6 +1,6 @@
 from tkinter import Tk, Label, Button, TOP, BOTTOM, messagebox
 from pinyin import get
-from random import choice
+from random import choices
 from zhtts import TTS
 from playsound import playsound
 import json
@@ -16,7 +16,6 @@ class App:
         height = int(master.winfo_screenheight() * .3)
 
         self.master = master
-        self.tts = tts
         
         self.words = dict(zip(map(str,map(self.get_id,txt)), [self.start_weight]*len(txt)))
 
@@ -24,11 +23,12 @@ class App:
         self.master.title("rote learning chinese since the Xi Dynasty 😻")
         self.master.configure(bg="black")
         self.master.iconbitmap('assets/kanna.ico')
-        self.txt = txt
+        self.txt = txt 
+        self.tts = tts
 
         self.wordscore = Label(self.master, text = 'word score : 0', font=("Comic Sans MS", int(min(width*.05, height*.05))), fg="white", bg="black")
 
-        self.label = Label(self.master, text="rote learning\n-inator 5000", font=("Comic Sans MS", int(min(width*.2, height*.2))), fg="white", bg="black")
+        self.label = Label(self.master, text="rote learning\n-inator 5000", font=("SimS un", int(min(width*.2, height*.2))), fg="white", bg="black")
         self.label.pack()
 
         self.next_button = Button(self.master, text="next word", font=("Comic Sans MS", int(min(width*.1, height*.1))), bg="black", fg="white", command=self.next_word)
@@ -43,11 +43,11 @@ class App:
         return ''.join(map(lambda x : x[2:] ,map(hex,(map(ord, list(word.strip()))))))
 
     def right(self):
-        self.words[self.current_word] -= self.start_weight//4
+        self.words[self.get_id(self.current_word)] -= self.start_weight//10
         self.next_word()
 
     def wrong(self):
-        self.words[self.current_word] += self.start_weight//10
+        self.words[self.get_id(self.current_word)] += self.start_weight//4
         self.next_word()
 
     def play_sound(self):
@@ -69,8 +69,11 @@ class App:
         self.play_button.pack(side=BOTTOM)
         self.show_button.pack(side=BOTTOM)
         escapeLoop = False
+        self.weights = [0] * len(self.txt)
+        for i,v in enumerate(self.txt):
+            self.weights[i] = self.words[self.get_id(v)]
         while not escapeLoop:
-            self.current_word = choice(self.txt).strip()
+            self.current_word = choices(self.txt, weights=self.weights, k=1)[0].strip()
             if not hasattr(self, 'pastword'):
                 escapeLoop = True          
             else:
@@ -87,7 +90,6 @@ class App:
             with open('assets/saved_scores.txt', encoding='utf-8', mode= 'w') as file:
                 file.writelines(json.dumps(self.words))
         root.destroy()
-
         
 if __name__ == "__main__":
     with open('assets/words.txt', encoding="utf-8") as file:
