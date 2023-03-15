@@ -2,7 +2,7 @@
  straightup a really simple tkinter app that just tests you chinese words
  
 ## context
-i made this to revise my igcse edexcel non-native mandarin. im chinese but like im not the best chinese person 👉👈 so yeah if there even is anybody that sees this readme and you're also doing igcse edexcel non-native mandarin or just want to remember how to write chinese properly then feel free to use this 😍😍
+i made this to revise my igcse edexcel non-native mandarin. im chinese but like im not the best chinese person out there uhmm.. 👉👈 so yeah if there even is anybody that sees this readme and you're also doing igcse edexcel non-native mandarin or just want to remember how to write chinese properly then feel free to use this 😍😍
 
 ## little tips from me to you 😤
 - set yourself an amount that you want to be tested beforehand
