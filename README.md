@@ -15,7 +15,7 @@ i made this to revise my igcse edexcel non-native mandarin. im chinese but like 
 - repeat
 - ?
 - profit
-alternatively you can also straight up just grind them without repeating five times for the things you get wrong just rewrite it once
+> alternatively you can also straight up just grind them without repeating five times for the things you get wrong just rewrite it once
 another good tip would be to study in bursts so like ten minutes of grinding on one day and the next day its another ten minutes or perhaps even grind half an hour per week 🤩🤩 only ting you really need to care about is that you at least retest with periods of break inbetween to solidify your long term memory. the break period will depend on how long it takes you to fully forget, so you want to find a good time where you still remember it but the memory is fading a little bit to practice for that maximum grind
 
 ## contributions
