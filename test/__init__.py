@@ -42,7 +42,7 @@ class App:
         self.wordscore = Label(self.master, text = 'word score : 0', font=("Comic Sans MS", int(min(width*.05, height*.05))), fg="white", bg="black")
 
         self.label = Label(self.master, text="rote learning\n-inator 5000", font=("SimSun", int(min(width*.5, height*.5))), fg="white", bg="black")
-        self.label.pack()
+        self.label.pack(side=TOP)
 
         self.next_button = Button(self.master, text=f"next word {self.next_word_key}", font=("Comic Sans MS", int(min(width*.1, height*.1))), bg="black", fg="white", command=self.next_word)
         
@@ -113,7 +113,7 @@ class App:
         if messagebox.askokcancel("🤣🤣 clown moment", "Do you want to save before quitting?"):
             with open('assets/saved_scores.txt', encoding='utf-8', mode= 'w') as file:
                 file.writelines(json.dumps(self.words))
-        root.destroy()
+        self.master.destroy()
         
 if __name__ == "__main__":
     
