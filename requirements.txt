@@ -1,4 +1,4 @@
 tkinter
-sinopy
+pinyin
 zhtts
 playsound == 1.2.2
